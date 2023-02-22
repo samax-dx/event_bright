@@ -3,6 +3,7 @@ package com.technext.event_bright.Utility;
 import java.util.concurrent.Callable;
 import java.util.function.Consumer;
 
+
 public class ArgUtil {
     public static <T> T accept(T arg, Consumer<T> argConsumer) {
         argConsumer.accept(arg);

@@ -3,6 +3,7 @@ package com.technext.event_bright.Utility;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 
+
 public class SpringWebUtil {
     public static Object currentRequestAttribute(String attributeName) {
         return RequestContextHolder.currentRequestAttributes().getAttribute(attributeName, RequestAttributes.SCOPE_REQUEST);

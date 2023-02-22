@@ -1,4 +1,4 @@
-package com.technext.event_bright.Models;
+package com.technext.event_bright.Models.auth;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;

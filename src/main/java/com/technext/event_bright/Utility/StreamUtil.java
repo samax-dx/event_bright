@@ -3,6 +3,7 @@ package com.technext.event_bright.Utility;
 import java.util.Objects;
 import java.util.stream.Stream;
 
+
 public class StreamUtil {
     @SafeVarargs
     public static <T> T firstNonNull(T... items) throws NullPointerException {
