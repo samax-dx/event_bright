@@ -14,5 +14,4 @@ public class SignupData {
     public String loginId;
     public String password;
     public String otp;
-    public String otpCiphered;
 }

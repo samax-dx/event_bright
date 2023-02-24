@@ -13,6 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+
 @RequiredArgsConstructor
 public class JwtHelper {
     private final String jwtSecret;
@@ -21,6 +22,10 @@ public class JwtHelper {
         try {
             DecodedJWT decodedJWT = JWT.decode(token);
             Algorithm.HMAC256(jwtSecret).verify(decodedJWT);
+
+            if (decodedJWT.getExpiresAt().after(Date.from(LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant()))) {
+                return new HashMap<>();
+            }
 
             return decodedJWT
                     .getClaims()

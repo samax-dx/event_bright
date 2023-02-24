@@ -5,7 +5,6 @@ import org.springframework.web.context.request.RequestContextHolder;
 
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
-import java.io.IOException;
 
 
 public class SpringWebUtil {
