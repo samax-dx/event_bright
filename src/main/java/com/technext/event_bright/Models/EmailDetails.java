@@ -1,4 +1,4 @@
-package com.technext.event_bright.Models.email;
+package com.technext.event_bright.Models;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;

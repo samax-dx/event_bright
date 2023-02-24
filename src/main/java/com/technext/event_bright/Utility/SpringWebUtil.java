@@ -3,6 +3,10 @@ package com.technext.event_bright.Utility;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 
+import javax.net.ssl.SSLSocket;
+import javax.net.ssl.SSLSocketFactory;
+import java.io.IOException;
+
 
 public class SpringWebUtil {
     public static Object currentRequestAttribute(String attributeName) {
@@ -19,5 +23,24 @@ public class SpringWebUtil {
 
     public static void setCurrentSessionAttribute(String attributeName, Object attributeValue) {
         RequestContextHolder.currentRequestAttributes().setAttribute(attributeName, attributeValue, RequestAttributes.SCOPE_SESSION);
+    }
+
+    public static String getSupportedProtocolScheme(String host) {
+        String[] hostParts = host.split(":");
+
+        String hostname = hostParts[0];
+        int port = Integer.parseInt(hostParts.length > 1 ? hostParts[1] : "443");
+
+        try {
+            SSLSocketFactory factory = (SSLSocketFactory) SSLSocketFactory.getDefault();
+            SSLSocket socket = (SSLSocket) factory.createSocket(hostname, port);
+
+            socket.startHandshake();
+            socket.close();
+
+            return "https";
+        } catch (Exception ignore) {
+            return "http";
+        }
     }
 }

@@ -1,6 +1,6 @@
 package com.technext.event_bright.Controller;
 
-import com.technext.event_bright.Models.email.EmailDetails;
+import com.technext.event_bright.Models.EmailDetails;
 import com.technext.event_bright.Services.Emil.EmailService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -19,7 +19,7 @@ import java.util.HashMap;
 @RestController
 @RequestMapping("/Email")
 @RequiredArgsConstructor
-public class Email {
+public class EmailController {
     private final EmailService emailService;
 
     @CrossOrigin(origins = "*")

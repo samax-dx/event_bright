@@ -1,6 +1,7 @@
 package com.technext.event_bright;
 
 import com.technext.event_bright.BrightAuth.JwtHelper;
+import com.technext.event_bright.BrightAuth.PasswordHelper;
 import com.technext.event_bright.Interceptors.AuthorizationInterceptor;
 import com.technext.event_bright.Aspects.AuthorizationAspect;
 import org.springframework.beans.factory.annotation.Value;
@@ -36,6 +37,11 @@ public class BrightAuthConfig implements WebMvcConfigurer {
     @Bean
     public JwtHelper jwtHelper() {
         return new JwtHelper(secret);
+    }
+
+    @Bean
+    public PasswordHelper passwordHelper() {
+        return new PasswordHelper(secret);
     }
 
     @Bean
