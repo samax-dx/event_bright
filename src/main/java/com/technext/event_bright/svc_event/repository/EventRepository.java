@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,4 +20,7 @@ public interface EventRepository extends JpaRepository<Event, Long> {
 
     @Query("select e from Event e where e.eventId=?1 and e.user.userId = ?2")
     Optional<Event> findEventByEventAndUserId(Long eventId, Long userId);
+
+    @Query("select e from Event e where e.date >= ?1 and e.date <= ?1")
+    List<Event> findEventsByDate(LocalDateTime date);
 }
