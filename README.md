@@ -14,3 +14,28 @@ Setup & Run:
  --spring.mail.username=<smtp-user>\
  --spring.mail.password=<smtp-pass>\
  "
+
+Api:
+Request Signup: request signup and receive credential at "address"
+--------------
+method: POST
+url: {host}:18081/Auth/sendSignupOtp
+headers: "Content-Type: application/json"
+body: {"address":""}
+response: {"token":""}
+
+Signup User: singup user using the token from previous response
+-----------
+method: POST
+url: {host}:18081/Auth/signup
+headers: "Content-Type: application/json", "Authorization: Bearer <token>"
+body: {"name":"","email":"","password":"","otp":""}
+response: {"token":""}
+
+User Login:
+-----------
+method: POST
+url: {host}:18081/Auth/login
+headers: "Content-Type: application/json"
+body: {"loginId":"","password":""}
+response: {"token":""}
