@@ -1,5 +1,9 @@
 # EventBright
 
+Requirements:
+* JDK 1.8
+* MariaDB 10.4.*
+
 Setup & Run:
 * Create a database with name "eventbright"
 * Make sure application can connect to database @localhost:3306
@@ -17,7 +21,7 @@ Setup & Run:
 
 Api:
 ```
-Request Signup: request signup and receive credential at "address"
+Request Signup: request signup and receive credential at email "address"
 ---------------
 method: POST
 url: {host}:18081/Auth/sendSignupOtp
@@ -25,7 +29,7 @@ headers: "Content-Type: application/json"
 body: {"address":""}
 response: {"token":""}
 
-Signup User: singup user using the token from previous response
+Signup User: singup using mailed "otp" and response "token" given by "sendSignupOtp"
 ------------
 method: POST
 url: {host}:18081/Auth/signup
