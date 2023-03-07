@@ -23,7 +23,7 @@ public class BrightEventNotifier {
     @Scheduled(cron = "0 * * * * *")
     @Transactional
     public void notifyEvent() {
-        List<Event> events = eventRepository.findEventsByDate(LocalDateTime.now());
+        List<Event> events = eventRepository.findEventsByDate(LocalDateTime.now().plusMinutes(30));
         events.forEach(event -> {
             EmailDetails details = new EmailDetails();
             details.subject = "Event " + event.getName() + " Reminder";
