@@ -2,7 +2,8 @@
 
 Requirements:
 * JDK 1.8
-* MariaDB 10.4.*
+* MariaDB 10.4.*  
+<br>
 
 Setup & Run:
 * Create a database with name "eventbright"
